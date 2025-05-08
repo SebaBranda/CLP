@@ -103,26 +103,26 @@ Este lenguaje está inspirado en esta "leyenda urbana" de las *Backrooms*, dise�
 
 ### Backus-Naur Form (BNF)
 ```
-<programa> ::= <instrucciones>
+<programa>      ::= <instrucciones>
 <instrucciones> ::= <instruccion> | <instruccion> <instrucciones>
-<instruccion> ::= <movimiento> | <accion> | <control> | <operacion>
-<movimiento> ::= w | a | s | d
-<accion> ::= e | q
-<control> ::= '[' <instrucciones> ']' | '{' <instrucciones> '}'
-<operacion> ::= "+" | "-" | "*" | "/"
-<numero> ::= <digito> | <digito> <numero>
-<digito> ::= 0 | ... | 9
+<instruccion>   ::= <movimiento> | <accion> | <control> | <operacion>
+<movimiento>    ::= w | a | s | d
+<accion>        ::= e | q
+<control>       ::= '[' <instrucciones> ']' | '{' <instrucciones> '}'
+<operacion>     ::= + | - | * | /
+<numero>        ::= <digito> | <digito> <numero>
+<digito>        ::= 0 | ... | 9
 ```
 ### Extendad Backus-Naur Form (EBNF)
 ```
-programa ::=  { instruccion } 
-instruccion ::= movimiento | accion | control | operacion 
-movimiento ::= w | a | s | d 
-accion ::= e | q 
-control ::= '[' { instruccion } ']' | '{' { instruccion } '}' 
-operacion ::= '+' | '-' | '*' | '/' 
-numero ::= digito { digito } 
-digito ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
+programa     ::=  { instruccion } 
+instruccion  ::= movimiento | accion | control | operacion 
+movimiento   ::= w | a | s | d 
+accion       ::= e | q 
+control      ::= '[' { instruccion } ']' | '{' { instruccion } '}' 
+operacion    ::= '+' | '-' | '*' | '/' 
+numero       ::= digito { digito } 
+digito       ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
 ```
 ### Augmented Backus-Naur Form (ABNF)
 
@@ -132,12 +132,16 @@ instruccion : movimiento
               accion
               control
               operacion
-movimiento : %x77 / %x61 / %x73 / %x64  ; 'w', 'a', 's', 'd' en ASCII
-accion : %x65 / %x71  ; 'e', 'q'
-control : "[" *instruccion "]" / "{" *instruccion "}"
-operacion : "+" / "-" / "*" / "/"
+movimiento : %x77
+             %x61
+             %x73
+             %x64  ; #'w', 'a', 's', 'd' en ASCII
+accion : uno de %x65 %x71  ; #'e', 'q'
+control : "[" *instruccion "]"
+          "{" *instruccion "}"
+operacion : uno de + - * /
 numero : 1*digito
-digito : %x30-39  ; '0'-'9'
+digito : uno de %x30-39  ; #'0'-'9'
 ```
 ### Semántica y Ejemplos
 Interpretación

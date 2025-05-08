@@ -77,7 +77,7 @@ DDP --> PDP
 # TP 3
 Características de Lenguajes de Programación
 
-# Gramáticas del Lenguaje Esotérico Backrooms
+# Gramáticas del Lenguaje Esotérico "Backrooms"
 
 ## 1. Gramática Independiente del Contexto (GIC)
 
@@ -151,4 +151,4 @@ digit : %x30-39  ; 0-9 en ASCII
 - Los **bloques de control** se representan con `[]` y `{}` según la documentación.
 - Las **operaciones matemáticas básicas** están incluidas.
 - El **movimiento** usa las teclas WASD típicas en videojuegos.
-- Las **acciones** `'e'` y `'q'` parecen representar interacciones especiales.
+- Las **acciones** `'e'` y `'q'` representan interacciones especiales.

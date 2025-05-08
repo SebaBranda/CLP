@@ -77,73 +77,112 @@ DDP --> PDP
 # TP 3
 Características de Lenguajes de Programación
 
-# Gramáticas del Lenguaje Esotérico "Backrooms"
+# Lenguaje Backrooms (Esotérico)
 
-## 1. Gramática Independiente del Contexto (GIC)
+Los "Backrooms" son una creepypasta o leyenda urbana que describe un laberinto infinito de cuartos y pasillos de apariencia industrial, normalmente con paredes amarillentas, iluminación artificial y pisos de vinilo. Son descritos como un lugar al que se puede acceder erróneamente desde el mundo real, y que se caracteriza por su naturaleza inquietante y a menudo peligrosa
 
+Este lenguaje está inspirado en esta "leyenda urbana" de las *Backrooms*, diseñado para simular exploración en un espacio infinito y surrealista mediante instrucciones minimalistas.
+
+## Índice
+- [Lenguaje Backrooms (Esotérico)](#lenguaje-backrooms-esotérico)
+  - [Índice](#índice)
+  - [Características](#características)
+  - [Gramáticas Formales](#gramáticas-formales)
+    - [Gramática Independiente del Contexto (GIC)](#gramática-independiente-del-contexto-gic)
+    - [Backus-Naur Form (BNF)](#backus-naur-form-bnf)
+    - [Extendad Backus-Naur Form (EBNF)](#extendad-backus-naur-form-ebnf)
+    - [Augmented Backus-Naur Form (ABNF)](#augmented-backus-naur-form-abnf)
+    - [Semántica y Ejemplos](#semántica-y-ejemplos)
+    - [Programa de Ejemplo](#programa-de-ejemplo)
+      - [Descripción:](#descripción)
+    - [Enlaces:](#enlaces)
+
+---
+
+## Características
+- **Movimiento**: `w` (adelante), `a` (izquierda), `s` (atrás), `d` (derecha).
+- **Acciones**: 
+  - `e` (interactuar).
+  - `q` (acción secundaria, como usar un objeto).
+- **Estructuras de control**:
+  - `[ ]`: Bucles o repeticiones.
+  - `{ }`: Bloques condicionales o de eventos.
+- **Operadores aritméticos**: `+`, `-`, `*`, `/` (modifican el entorno).
+- **Números**: Enteros positivos (ej. `42` para repeticiones).
+
+---
+
+## Gramáticas Formales
+
+### Gramática Independiente del Contexto (GIC)
 ```gic
-<programa> -> <instrucciones>
-<instrucciones> -> <instruccion> | <instruccion> <instrucciones>
-<instruccion> -> <movimiento> | <accion> | <control> | <operacion>
-<movimiento> -> w | a | s | d
-<accion> -> e | q
-<control> -> "[" <instrucciones> "]" | "{" <instrucciones> "}"
-<operacion> -> + | - | * | /
-<numero> -> <digito> | <digito> <numero>
-<digito> -> 0 | ... | 9
+<programa>      → <instrucciones>
+<instrucciones> → <instruccion> | <instruccion> <instrucciones>
+<instruccion>   → <movimiento> | <accion> | <control> | <operacion>
+<movimiento>    → 'w' | 'a' | 's' | 'd'
+<accion>        → 'e' | 'q'
+<control>       → '[' <instrucciones> ']' | '{' <instrucciones> '}'
+<operacion>     → '+' | '-' | '*' | '/'
+<numero>        → <digito> | <digito> <numero>
+<digito>        → '0' | '1' | ... | '9'
 ```
 
----
-
-## 2. BNF (Forma Normal de Backus)
-
-```bnf
-<program> ::= <statements>
-<statements> ::= <statement> | <statement> <statements>
-<statement> ::= <movement> | <action> | <control> | <operation>
-<movement> ::= w | a | s | d
-<action> ::= e | q
-<control> ::= [ <statements> ] | { <statements> }
-<operation> ::= + | - | * | /
-<number> ::= <digit> | <digit> <number>
-<digit> ::= 0 | ... | 9
+### Backus-Naur Form (BNF)
 ```
-
----
-
-## 3. EBNF (Extended BNF)
-
-```ebnf
-program ::= { statement }
-statement ::= movement | action | control | operation
-movement ::= w | a | s | d
-action ::= e | q
-control ::= "[" { statement } "]" | "{" { statement } "}"
-operation ::= + | - | * | /
-number ::= digit { digit }
-digit ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+<programa> ::= <instrucciones>
+<instrucciones> ::= <instruccion> | <instruccion> <instrucciones>
+<instruccion> ::= <movimiento> | <accion> | <control> | <operacion>
+<movimiento> ::= 'w' | 'a' | 's' | 'd'
+<accion> ::= 'e' | 'q'
+<control> ::= '[' <instrucciones> ']' | '{' <instrucciones> '}'
+<operacion> ::= '+' | '-' | '*' | '/'
+<numero> ::= <digito> | <digito> <numero>
+<digito> ::= '0' | '1' | ... | '9'
 ```
-
----
-
-## 4. ABNF (Augmented BNF)
-
-```abnf
-program : *statement
-statement : movement
-            action
-            control
-            operation
-movement : uno de "w"  "a"  "s"  "d"
-action : uno de "e"  "q"
-control : "[" *statement "]" 
-          "{" *statement "}"
-operation : uno de + - * /
-number : 1*digit
-digit : %x30-39  ; 0-9 en ASCII
+### Extendad Backus-Naur Form (EBNF)
 ```
+programa = { instruccion } ;
+instruccion = movimiento | accion | control | operacion ;
+movimiento = 'w' | 'a' | 's' | 'd' ;
+accion = 'e' | 'q' ;
+control = '[' { instruccion } ']' | '{' { instruccion } '}' ;
+operacion = '+' | '-' | '*' | '/' ;
+numero = digito { digito } ;
+digito = '0' | '1' | ... | '9' ;
+```
+### Augmented Backus-Naur Form (ABNF)
 
----
+```
+programa = *instruccion
+instruccion = movimiento / accion / control / operacion
+movimiento = %x77 / %x61 / %x73 / %x64  ; 'w', 'a', 's', 'd' en ASCII
+accion = %x65 / %x71  ; 'e', 'q'
+control = "[" *instruccion "]" / "{" *instruccion "}"
+operacion = "+" / "-" / "*" / "/"
+numero = 1*digito
+digito = %x30-39  ; '0'-'9'
+```
+### Semántica y Ejemplos
+Interpretación
+[w a s d]: Bucle infinito de movimientos (caminar en círculo).
+
+{e q *}: Ejecuta e, luego q, y aplica una multiplicación al entorno.
+
+3w (extensión propuesta): Avanza 3 veces.
+
+### Programa de Ejemplo
+```
+w w [a d] e {q * 2}
+```
+#### Descripción:
+
+Avanza 2 veces (w w).
+
+Entra en un bucle [a d] (izquierda-derecha).
+
+Ejecuta e (interactúa).
+
+Bloque {q * 2}: Usa q y multiplica algo por 2.
 
 ## Notas adicionales
 
@@ -152,3 +191,10 @@ digit : %x30-39  ; 0-9 en ASCII
 - Las **operaciones matemáticas básicas** están incluidas.
 - El **movimiento** usa las teclas WASD típicas en videojuegos.
 - Las **acciones** `'e'` y `'q'` representan interacciones especiales.
+
+### Enlaces:
+
+https://rpp.pe/capital/mundo/que-son-los-backrooms-la-pesadilla-que-podria-aterrorizarte-noticias-1435019
+
+https://esolangs.org/wiki/Backrooms
+

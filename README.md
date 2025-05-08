@@ -74,10 +74,10 @@ DDP --> PDP
 
 
 
-# TP 3
-Características de Lenguajes de Programación
+# Características de Lenguajes de Programación
 
-# Lenguaje Backrooms (Esotérico)
+
+## TP 3 - Lenguaje Backrooms (Esotérico)
 
 Los "Backrooms" son una creepypasta o leyenda urbana que describe un laberinto infinito de cuartos y pasillos de apariencia industrial, normalmente con paredes amarillentas, iluminación artificial y pisos de vinilo. Son descritos como un lugar al que se puede acceder erróneamente desde el mundo real, y que se caracteriza por su naturaleza inquietante y a menudo peligrosa
 

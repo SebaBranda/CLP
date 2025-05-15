@@ -179,6 +179,9 @@ https://rpp.pe/capital/mundo/que-son-los-backrooms-la-pesadilla-que-podria-aterr
 
 https://esolangs.org/wiki/Backrooms
 
+### Árbol Sintáctico
+
+![image](https://github.com/user-attachments/assets/8635c3f8-0cb1-4e4b-afc2-e41221d78036)
 
 
 ### Diagrama de CONNWAY para "Backrooms"

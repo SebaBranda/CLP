@@ -179,3 +179,10 @@ https://rpp.pe/capital/mundo/que-son-los-backrooms-la-pesadilla-que-podria-aterr
 
 https://esolangs.org/wiki/Backrooms
 
+
+
+### Diagrama de CONNWAY para "Backrooms"
+
+![image](https://github.com/user-attachments/assets/54613da8-e04a-4719-b4ce-311614f390d1)
+
+

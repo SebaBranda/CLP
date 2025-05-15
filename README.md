@@ -92,7 +92,7 @@ Este lenguaje está inspirado en esta "leyenda urbana" de las *Backrooms*, dise�
 ```gic
 <programa>      → <instrucciones>
 <instrucciones> → <instruccion> | <instruccion> <instrucciones>
-<instruccion>   → <movimiento> | <accion> | <control> | <operacion>
+<instruccion>   → <movimiento> | <accion> | <control> | <operacion> | <numero> | <numero> <operacion>
 <movimiento>    → w | a | s | d
 <accion>        → e | q
 <control>       → '[' <instrucciones> ']' | '{' <instrucciones> '}'
@@ -105,7 +105,7 @@ Este lenguaje está inspirado en esta "leyenda urbana" de las *Backrooms*, dise�
 ```
 <programa>      ::= <instrucciones>
 <instrucciones> ::= <instruccion> | <instruccion> <instrucciones>
-<instruccion>   ::= <movimiento> | <accion> | <control> | <operacion>
+<instruccion>   ::= <movimiento> | <accion> | <control> | <operacion> | <numero> | <numero> <operacion>
 <movimiento>    ::= w | a | s | d
 <accion>        ::= e | q
 <control>       ::= '[' <instrucciones> ']' | '{' <instrucciones> '}'

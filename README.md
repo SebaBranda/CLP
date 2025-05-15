@@ -120,7 +120,7 @@ instruccion  ::= movimiento | accion | control | operacion
 movimiento   ::= w | a | s | d 
 accion       ::= e | q 
 control      ::= '[' { instruccion } ']' | '{' { instruccion } '}' 
-operacion    ::= '+' | '-' | '*' | '/' 
+operacion    ::= '+' | '-' | '*' | '/' | <numero> | <numero> <operacion>
 numero       ::= digito { digito } 
 digito       ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
 ```

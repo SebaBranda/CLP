@@ -92,7 +92,7 @@ Este lenguaje está inspirado en esta "leyenda urbana" de las *Backrooms*, dise�
 ```gic
 <programa>      → <instrucciones>
 <instrucciones> → <instruccion> | <instruccion> <instrucciones>
-<instruccion>   → <movimiento> | <accion> | <control> | <operacion> | <numero> | <numero> <operacion>
+<instruccion>   → <movimiento> | <accion> | <control> | <operacion> | <numero> 
 <movimiento>    → w | a | s | d
 <accion>        → e | q
 <control>       → '[' <instrucciones> ']' | '{' <instrucciones> '}'
@@ -105,7 +105,7 @@ Este lenguaje está inspirado en esta "leyenda urbana" de las *Backrooms*, dise�
 ```
 <programa>      ::= <instrucciones>
 <instrucciones> ::= <instruccion> | <instruccion> <instrucciones>
-<instruccion>   ::= <movimiento> | <accion> | <control> | <operacion> | <numero> | <numero> <operacion>
+<instruccion>   ::= <movimiento> | <accion> | <control> | <operacion> | <numero> 
 <movimiento>    ::= w | a | s | d
 <accion>        ::= e | q
 <control>       ::= '[' <instrucciones> ']' | '{' <instrucciones> '}'
@@ -116,11 +116,11 @@ Este lenguaje está inspirado en esta "leyenda urbana" de las *Backrooms*, dise�
 ### Extendad Backus-Naur Form (EBNF)
 ```
 programa     ::=  { instruccion } 
-instruccion  ::= movimiento | accion | control | operacion 
+instruccion  ::= movimiento | accion | control | operacion | numero
 movimiento   ::= w | a | s | d 
 accion       ::= e | q 
 control      ::= '[' { instruccion } ']' | '{' { instruccion } '}' 
-operacion    ::= '+' | '-' | '*' | '/' | <numero> | <numero> <operacion>
+operacion    ::= '+' | '-' | '*' | '/' 
 numero       ::= digito { digito } 
 digito       ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
 ```
@@ -132,6 +132,7 @@ instruccion : movimiento
               accion
               control
               operacion
+              numero
 movimiento : %x77
              %x61
              %x73

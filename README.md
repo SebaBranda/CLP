@@ -207,34 +207,34 @@ https://esolangs.org/wiki/Backrooms
 Binding de Alcance (Scope Binding):
 
 Estático: El valor de una variable se resuelve en tiempo de compilación o antes de la ejecución, basándose en la ubicación léxica del código.
-Python
-
+```
 def f(x):
     return x + 1
-
+```
 Dinámico: El valor de una variable se resuelve en tiempo de ejecución, basándose en el contexto de llamada.
-Python
 
+```
 def f():
     a = 10
     return lambda x: x + a # La variable 'a' vive fuera de la función lambda
+```
 Binding de Almacenamiento (Storage Binding):
 
 Dinámico: La variable se almacena en el heap y su vida útil se extiende más allá de la función que la define.
-Python
 
+```
 def outer():
     a = 1
     return lambda: a # 'a' permanece en el heap y es accesible por la lambda
-
+```
 Binding de Nombre (Name Binding):
 
 Dinámico: El nombre de una variable o función es generado o asociado en tiempo de ejecución.
-Python
 
-globals()['saludo'] = lambda x: print(x) 
+```
+globals()['saludo'] = lambda x: print(x) #El nombre 'saludo' se genera dinámicamente
+```
 
-El nombre 'saludo' se genera dinámicamente
 
 
 

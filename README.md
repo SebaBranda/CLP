@@ -202,3 +202,39 @@ https://esolangs.org/wiki/Backrooms
 | **De tipo de paso** | Indica la estrategia con la que se pasa el parámetro (valor, referencia, nombre, perezoso, etc.). | Se fija por el lenguaje o en la definición de la función. No varía al llamar. | Se determina en tiempo de ejecución o puede variar según el uso del parámetro. | Estático: el paso es siempre el mismo. Dinámico: puede elegirse o inferirse durante la ejecución. | **Estático**: `int f(int x)` *(C, por valor)*<br>**Dinámico**: `let x = lazy (f())` *(OCaml, evaluación diferida/perezosa)* |
 
 
+##Ejemplos de Binding: 
+
+Binding de Alcance (Scope Binding):
+
+Estático: El valor de una variable se resuelve en tiempo de compilación o antes de la ejecución, basándose en la ubicación léxica del código.
+Python
+
+def f(x):
+    return x + 1
+
+Dinámico: El valor de una variable se resuelve en tiempo de ejecución, basándose en el contexto de llamada.
+Python
+
+def f():
+    a = 10
+    return lambda x: x + a # La variable 'a' vive fuera de la función lambda
+Binding de Almacenamiento (Storage Binding):
+
+Dinámico: La variable se almacena en el heap y su vida útil se extiende más allá de la función que la define.
+Python
+
+def outer():
+    a = 1
+    return lambda: a # 'a' permanece en el heap y es accesible por la lambda
+
+Binding de Nombre (Name Binding):
+
+Dinámico: El nombre de una variable o función es generado o asociado en tiempo de ejecución.
+Python
+
+globals()['saludo'] = lambda x: print(x) 
+
+El nombre 'saludo' se genera dinámicamente
+
+
+

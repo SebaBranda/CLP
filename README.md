@@ -236,13 +236,17 @@ globals()['saludo'] = lambda x: print(x) #El nombre 'saludo' se genera dinámica
 ```
 # Lenguaje de Programación a Lenguaje Natural
 ## Lenguaje de Programación: "Caminante"
-Imagina que tu código es un "Caminante", una entidad que se mueve a través de los infinitos y extraños Backrooms. Este lenguaje, llamado "Caminante", te permite darle instrucciones a este caminante para interactuar con los Niveles y las Entidades que habitan este laberinto. Cada instrucción se asemeja a una acción que tomarías o una observación que harías dentro de los Backrooms.
 
-Con "Caminante", puedes hacer lo siguiente:
+Imagina que tu código es un "Caminante", una entidad que se mueve a través de los infinitos y extraños Backrooms. 
+Este lenguaje, llamado "Caminante", te permite darle instrucciones a este caminante para interactuar con los Niveles y las Entidades que habitan este laberinto. Cada instrucción se asemeja a una acción que tomarías o una observación que harías dentro de los Backrooms.
 
-Expresiones (Detección y Manipulación de Atributos): Puedes "detectar" o "establecer" atributos de tu entorno o de ti mismo. Por ejemplo, puedes decir "detecta 'humedad' en el Nivel actual" o "establece 'resistencia' a 50". El lenguaje procesará estas detecciones o asignaciones, dándote información o modificando características.
+El lenguaje se compone de:
 
-Condicionales (Decisiones de Supervivencia): Puedes hacer que tu caminante tome decisiones críticas. Si se cumple una condición ("hay una Entidad cerca"), realizará una acción ("huye"); si no, hará otra ("continúa explorando"). Por ejemplo: "Si 'peligro_cercano' es 'verdadero', entonces 'corre al Nivel_Seguro', si no, 'busca suministros'".
+Expresiones (Detección y Manipulación de Atributos): Puedes "detectar" o "establecer" atributos de tu entorno o de ti mismo. 
+Por ejemplo, puedes decir "detecta 'humedad' en el Nivel actual" o "establece 'resistencia' a 50". El lenguaje procesará estas detecciones o asignaciones, dándote información o modificando características.
+
+Condicionales (Decisiones de Supervivencia): Puedes hacer que tu caminante tome decisiones críticas. 
+Si se cumple una condición ("hay una Entidad cerca"), realizará una acción ("huye"); si no, hará otra ("continúa explorando"). Por ejemplo: "Si 'peligro_cercano' es 'verdadero', entonces 'corre al Nivel_Seguro', si no, 'busca suministros'".
 
 Iteración (Patrullas y Búsquedas Repetitivas): Puedes ordenar al caminante que repita una acción un número específico de veces o hasta que una condición deje de cumplirse (o se cumpla). Por ejemplo: "Recorre el Nivel 10 veces: 'escanear_paredes'" o "Mientras 'salida_no_encontrada' sea 'verdadera', 'muévete_aleatoriamente'".
 

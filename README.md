@@ -283,7 +283,7 @@ Atributos/Entidades (Cadenas de Texto): Son descripciones de propiedades ("'ilum
                        | <expresion_numerica> "dividido_por" <expresion_numerica>
                        | "(" <expresion_numerica> ")"
 
-<evaluacion_condicional> ::= "si" <condicion_backroom> "," "entonces" <programa> "sino," <programa>
+<evaluacion_condicional> ::= "si" <condicion_backroom> "," "entonces" <programa> "sino" <programa>
                            | "si" <condicion_backroom> "," "entonces" <programa>
 
 <condicion_backroom> ::= <variable> "es" <valor>

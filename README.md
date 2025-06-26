@@ -234,8 +234,8 @@ Dinámico: El nombre de una variable o función es generado o asociado en tiempo
 ```
 globals()['saludo'] = lambda x: print(x) #El nombre 'saludo' se genera dinámicamente
 ```
-
-Lenguaje de Programación: "Caminante"
+# Lenguaje de Programación a Lenguaje Natural
+## Lenguaje de Programación: "Caminante"
 Imagina que tu código es un "Caminante", una entidad que se mueve a través de los infinitos y extraños Backrooms. Este lenguaje, llamado "Caminante", te permite darle instrucciones a este caminante para interactuar con los Niveles y las Entidades que habitan este laberinto. Cada instrucción se asemeja a una acción que tomarías o una observación que harías dentro de los Backrooms.
 
 Con "Caminante", puedes hacer lo siguiente:
@@ -253,7 +253,7 @@ Niveles/Cantidades (Numéricos): Representan los distintos Niveles de los Backro
 
 Atributos/Entidades (Cadenas de Texto): Son descripciones de propiedades ("'iluminación'"), nombres de Entidades ("'Sonriente'"), o estados ("'seguro'"). Siempre van entre comillas. Por ejemplo: "Nivel_Infinito", "olor_a_humedad", "Parásito".
 
-##Gramática BNF (Backus-Naur Form) para "Caminante"
+## Gramática BNF (Backus-Naur Form) para "Caminante"
 
 ```
 <programa> ::= <instruccion> | <instruccion> <programa>
@@ -314,7 +314,7 @@ Atributos/Entidades (Cadenas de Texto): Son descripciones de propiedades ("'ilum
 <direccion> ::= "adelante" | "atras" | "izquierda" | "derecha"
 ```
 
-##Ejemplo de Programa en "Caminante":
+## Ejemplo de Programa en "Caminante":
 
 detecta "iluminacion" en Nivel_actual y guarda en luz_actual
 si luz_actual es "baja", entonces

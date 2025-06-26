@@ -331,9 +331,9 @@ si luz_actual es "baja", entonces
       interactuar_con "Sonriente"
       si "Sonriente" esta_presente_en Nivel_actual, entonces
         transicionar_a Nivel_0
-      sino,
+      sino
         manifestar "Falsa alarma. Continuando."
-sino,
+sino
   manifestar "Nivel bien iluminado. Explorando con cautela."
   mientras estabilidad_nivel es_mayor_que 10:
     establece "estabilidad_nivel" a estabilidad_nivel menos 1

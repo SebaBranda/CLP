@@ -235,6 +235,104 @@ Dinámico: El nombre de una variable o función es generado o asociado en tiempo
 globals()['saludo'] = lambda x: print(x) #El nombre 'saludo' se genera dinámicamente
 ```
 
+Lenguaje de Programación: "Caminante"
+Imagina que tu código es un "Caminante", una entidad que se mueve a través de los infinitos y extraños Backrooms. Este lenguaje, llamado "Caminante", te permite darle instrucciones a este caminante para interactuar con los Niveles y las Entidades que habitan este laberinto. Cada instrucción se asemeja a una acción que tomarías o una observación que harías dentro de los Backrooms.
 
+Con "Caminante", puedes hacer lo siguiente:
+
+Expresiones (Detección y Manipulación de Atributos): Puedes "detectar" o "establecer" atributos de tu entorno o de ti mismo. Por ejemplo, puedes decir "detecta 'humedad' en el Nivel actual" o "establece 'resistencia' a 50". El lenguaje procesará estas detecciones o asignaciones, dándote información o modificando características.
+
+Condicionales (Decisiones de Supervivencia): Puedes hacer que tu caminante tome decisiones críticas. Si se cumple una condición ("hay una Entidad cerca"), realizará una acción ("huye"); si no, hará otra ("continúa explorando"). Por ejemplo: "Si 'peligro_cercano' es 'verdadero', entonces 'corre al Nivel_Seguro', si no, 'busca suministros'".
+
+Iteración (Patrullas y Búsquedas Repetitivas): Puedes ordenar al caminante que repita una acción un número específico de veces o hasta que una condición deje de cumplirse (o se cumpla). Por ejemplo: "Recorre el Nivel 10 veces: 'escanear_paredes'" o "Mientras 'salida_no_encontrada' sea 'verdadera', 'muévete_aleatoriamente'".
+
+Tipos de Datos (Los Elementos de los Backrooms)
+"Caminante" entiende y maneja al menos dos tipos fundamentales de información, cruciales para navegar los Backrooms:
+
+Niveles/Cantidades (Numéricos): Representan los distintos Niveles de los Backrooms (0, 1, 2, etc.) o cantidades como "estabilidad" o "recuentos". Por ejemplo: 0, 999, 3.14.
+
+Atributos/Entidades (Cadenas de Texto): Son descripciones de propiedades ("'iluminación'"), nombres de Entidades ("'Sonriente'"), o estados ("'seguro'"). Siempre van entre comillas. Por ejemplo: "Nivel_Infinito", "olor_a_humedad", "Parásito".
+
+##Gramática BNF (Backus-Naur Form) para "Caminante"
+
+```
+<programa> ::= <instruccion> | <instruccion> <programa>
+
+<instruccion> ::= <declaracion_atributo>
+                | <evaluacion_condicional>
+                | <ciclo_exploracion>
+                | <accion_basica>
+
+<declaracion_atributo> ::= "establece" <variable> "a" <valor>
+                         | "detecta" <atributo_backroom> "en" <lugar> "y guarda en" <variable>
+
+<valor> ::= <numero>
+          | <cadena_texto>
+          | <variable>
+          | <expresion_numerica>
+
+<expresion_numerica> ::= <numero>
+                       | <variable>
+                       | <expresion_numerica> "mas" <expresion_numerica>
+                       | <expresion_numerica> "menos" <expresion_numerica>
+                       | <expresion_numerica> "multiplicado_por" <expresion_numerica>
+                       | <expresion_numerica> "dividido_por" <expresion_numerica>
+                       | "(" <expresion_numerica> ")"
+
+<evaluacion_condicional> ::= "si" <condicion_backroom> "," "entonces" <programa> "sino," <programa>
+                           | "si" <condicion_backroom> "," "entonces" <programa>
+
+<condicion_backroom> ::= <variable> "es" <valor>
+                       | <atributo_backroom> "es" <cadena_texto>
+                       | <numero> "es_mayor_que" <numero>
+                       | <entidad> "esta_presente_en" <lugar>
+
+<ciclo_exploracion> ::= "repite" <numero> "veces" ":" <programa>
+                      | "mientras" <condicion_backroom> ":" <programa>
+
+<accion_basica> ::= "mover" <direccion>
+                  | "interactuar_con" <entidad>
+                  | "manifestar" <valor>
+                  | "transicionar_a" <lugar>
+
+<numero> ::= <digito> | <numero> <digito> | <numero> "." <digito>
+<digito> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+<cadena_texto> ::= "\"" <caracteres> "\""
+<caracteres> ::= <caracter> | <caracter> <caracteres>
+<caracter> ::= (cualquier letra, número, o símbolo excepto "\"")
+
+<variable> ::= <letra> | <variable> <letra> | <variable> <digito> | <variable> "_"
+<letra> ::= "a"..."z" | "A"..."Z"
+
+<atributo_backroom> ::= "iluminacion" | "humedad" | "ruido" | "estabilidad_nivel" | <cadena_texto>
+
+<lugar> ::= "Nivel_" <numero> | "Nivel_actual" | "zona_segura" | <variable>
+
+<entidad> ::= "Sonriente" | "Sabueso" | "Limen" | "Parásito" | <cadena_texto>
+
+<direccion> ::= "adelante" | "atras" | "izquierda" | "derecha"
+```
+
+##Ejemplo de Programa en "Caminante":
+
+detecta "iluminacion" en Nivel_actual y guarda en luz_actual
+si luz_actual es "baja", entonces
+  manifestar "¡Oscuridad! Buscando una fuente de luz."
+  repite 5 veces:
+    mover adelante
+    detecta "ruido" en Nivel_actual y guarda en ruido_detectado
+    si ruido_detectado es "alto", entonces
+      manifestar "¡Ruido sospechoso! Podría haber una Entidad."
+      interactuar_con "Sonriente"
+      si "Sonriente" esta_presente_en Nivel_actual, entonces
+        transicionar_a Nivel_0
+      sino,
+        manifestar "Falsa alarma. Continuando."
+sino,
+  manifestar "Nivel bien iluminado. Explorando con cautela."
+  mientras estabilidad_nivel es_mayor_que 10:
+    establece "estabilidad_nivel" a estabilidad_nivel menos 1
+    manifestar "Disminuyendo estabilidad..."
 
 

@@ -315,7 +315,7 @@ Atributos/Entidades (Cadenas de Texto): Son descripciones de propiedades ("'ilum
 ```
 
 ## Ejemplo de Programa en "Caminante":
-
+```
 detecta "iluminacion" en Nivel_actual y guarda en luz_actual
 si luz_actual es "baja", entonces
   manifestar "¡Oscuridad! Buscando una fuente de luz."
@@ -334,5 +334,5 @@ sino,
   mientras estabilidad_nivel es_mayor_que 10:
     establece "estabilidad_nivel" a estabilidad_nivel menos 1
     manifestar "Disminuyendo estabilidad..."
-
+```
 

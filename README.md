@@ -243,12 +243,28 @@ Este lenguaje, llamado "Caminante", te permite darle instrucciones a este camina
 El lenguaje se compone de:
 
 Expresiones (Detección y Manipulación de Atributos): Puedes "detectar" o "establecer" atributos de tu entorno o de ti mismo. 
-Por ejemplo, puedes decir "detecta 'humedad' en el Nivel actual" o "establece 'resistencia' a 50". El lenguaje procesará estas detecciones o asignaciones, dándote información o modificando características.
+Por ejemplo, 
+```
+"detecta 'humedad' en el Nivel actual"
+"establece 'resistencia' a 50"
 
-Condicionales (Decisiones de Supervivencia): Puedes hacer que tu caminante tome decisiones críticas. 
-Si se cumple una condición ("hay una Entidad cerca"), realizará una acción ("huye"); si no, hará otra ("continúa explorando"). Por ejemplo: "Si 'peligro_cercano' es 'verdadero', entonces 'corre al Nivel_Seguro', si no, 'busca suministros'".
+```
+El lenguaje procesará estas detecciones o asignaciones, dándote información o modificando características.
 
-Iteración (Patrullas y Búsquedas Repetitivas): Puedes ordenar al caminante que repita una acción un número específico de veces o hasta que una condición deje de cumplirse (o se cumpla). Por ejemplo: "Recorre el Nivel 10 veces: 'escanear_paredes'" o "Mientras 'salida_no_encontrada' sea 'verdadera', 'muévete_aleatoriamente'".
+Condicionales (Decisiones de Supervivencia): Puedes hacer que tu caminante tome decisiones críticas.
+Si se cumple una condición ("hay una Entidad cerca"), realizará una acción ("huye"); si no, hará otra ("continúa explorando"). 
+```
+"Si **'peligro_cercano'** 
+    'corre al zona_segura'
+si no
+    'busca suministros'"
+```
+Iteración (Patrullas y Búsquedas Repetitivas): Puedes ordenar al caminante que repita una acción un número específico de veces o hasta que una condición deje de cumplirse (o se cumpla). 
+```
+ "Recorre el Nivel 10 veces: 'escanear_paredes'"
+ "Mientras 'salida_no_encontrada'
+    'muévete_aleatoriamente'"
+```
 
 Tipos de Datos (Los Elementos de los Backrooms)
 "Caminante" entiende y maneja al menos dos tipos fundamentales de información, cruciales para navegar los Backrooms:
@@ -267,16 +283,16 @@ Atributos/Entidades (Cadenas de Texto): Son descripciones de propiedades ("'ilum
                 | <ciclo_exploracion>
                 | <accion_basica>
 
-<declaracion_atributo> ::= "establece" <variable> "a" <valor>
-                         | "detecta" <atributo_backroom> "en" <lugar> "y guarda en" <variable>
+<declaracion_atributo> ::= "establece" <identificador> "a" <valor>
+                         | "detecta" <atributo_backroom> "en" <lugar> "y guarda en" <identificador>
 
 <valor> ::= <numero>
           | <cadena_texto>
-          | <variable>
+          | <identificador>
           | <expresion_numerica>
 
 <expresion_numerica> ::= <numero>
-                       | <variable>
+                       | <identificador>
                        | <expresion_numerica> "mas" <expresion_numerica>
                        | <expresion_numerica> "menos" <expresion_numerica>
                        | <expresion_numerica> "multiplicado_por" <expresion_numerica>
@@ -286,7 +302,7 @@ Atributos/Entidades (Cadenas de Texto): Son descripciones de propiedades ("'ilum
 <evaluacion_condicional> ::= "si" <condicion_backroom> "," "entonces" <programa> "sino" <programa>
                            | "si" <condicion_backroom> "," "entonces" <programa>
 
-<condicion_backroom> ::= <variable> "es" <valor>
+<condicion_backroom> ::= <identificador> "es" <valor>
                        | <atributo_backroom> "es" <cadena_texto>
                        | <numero> "es_mayor_que" <numero>
                        | <entidad> "esta_presente_en" <lugar>
@@ -306,12 +322,12 @@ Atributos/Entidades (Cadenas de Texto): Son descripciones de propiedades ("'ilum
 <caracteres> ::= <caracter> | <caracter> <caracteres>
 <caracter> ::= (cualquier letra, número, o símbolo excepto "\"")
 
-<variable> ::= <letra> | <variable> <letra> | <variable> <digito> | <variable> "_"
+<identificador> ::= <letra> | <identificador> <letra> | <identificador> <digito> | <identificador> "_"
 <letra> ::= "a"..."z" | "A"..."Z"
 
 <atributo_backroom> ::= "iluminacion" | "humedad" | "ruido" | "estabilidad_nivel" | <cadena_texto>
 
-<lugar> ::= "Nivel_" <numero> | "Nivel_actual" | "zona_segura" | <variable>
+<lugar> ::= "Nivel_" <numero> | "Nivel_actual" | "zona_segura" | <identificador>
 
 <entidad> ::= "Sonriente" | "Sabueso" | "Limen" | "Parásito" | <cadena_texto>
 
@@ -320,23 +336,23 @@ Atributos/Entidades (Cadenas de Texto): Son descripciones de propiedades ("'ilum
 
 ## Ejemplo de Programa en "Caminante":
 ```
-detecta "iluminacion" en Nivel_actual y guarda en luz_actual
-si luz_actual es "baja", entonces
-  manifestar "¡Oscuridad! Buscando una fuente de luz."
-  repite 5 veces:
-    mover adelante
-    detecta "ruido" en Nivel_actual y guarda en ruido_detectado
-    si ruido_detectado es "alto", entonces
-      manifestar "¡Ruido sospechoso! Podría haber una Entidad."
-      interactuar_con "Sonriente"
-      si "Sonriente" esta_presente_en Nivel_actual, entonces
-        transicionar_a Nivel_0
+detecta **"iluminacion"** en **Nivel_actual** y guarda en **luz_actual**
+si **luz_actual** es "baja", entonces
+  **manifestar** "¡Oscuridad! Buscando una fuente de luz."
+  **repite** 5 **veces**:
+    **mover adelante**
+    **detecta** "ruido" en **Nivel_actual** y guarda en **ruido_detectado**
+    si **ruido_detectado** es "alto", entonces
+      **manifestar** "¡Ruido sospechoso! Podría haber una Entidad."
+      **interactuar_con** **"Sonriente"**
+      si **"Sonriente"** **esta_presente_en** **Nivel_actual**, entonces
+        **transicionar_a Nivel_0**
       sino
-        manifestar "Falsa alarma. Continuando."
+        **manifestar** "Falsa alarma. Continuando."
 sino
-  manifestar "Nivel bien iluminado. Explorando con cautela."
-  mientras estabilidad_nivel es_mayor_que 10:
-    establece "estabilidad_nivel" a estabilidad_nivel menos 1
-    manifestar "Disminuyendo estabilidad..."
+  **manifestar** "Nivel bien iluminado. Explorando con cautela."
+  mientras **estabilidad_nivel es_mayor_que** 10:
+    **establece** "estabilidad_nivel" a **estabilidad_nivel** menos 1
+    **manifestar** "Disminuyendo estabilidad..."
 ```
 

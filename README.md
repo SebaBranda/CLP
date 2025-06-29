@@ -237,6 +237,8 @@ globals()['saludo'] = lambda x: print(x) #El nombre 'saludo' se genera dinámica
 # Lenguaje de Programación a Lenguaje Natural
 ## Lenguaje de Programación: "Caminante"
 
+![image](https://github.com/user-attachments/assets/3bd9ff28-a38c-40ff-8b22-b969af3bb5ce)
+
 Imagina que tu código es un "Caminante", una entidad que se mueve a través de los infinitos y extraños Backrooms. 
 Este lenguaje, llamado "Caminante", te permite darle instrucciones a este caminante para interactuar con los Niveles y las Entidades que habitan este laberinto. 
 Cada instrucción se asemeja a una acción que tomarías o una observación que harías dentro de los Backrooms.
@@ -373,7 +375,9 @@ Entidades: En "Caminante", las principales entidades que manipulan y existen son
 
 - Entidades Nombradas: Referencias a las criaturas de los Backrooms, como `Sonriente`, `Sabueso`, etc.
 
- - Ligaduras: Se refieren a cuándo se asocian nombres con sus significados.
+# Ligaduras: 
+
+Se refieren a cuándo se asocian nombres con sus significados.
 
 - Estáticas (tiempo de compilación/diseño): La mayoría de las ligaduras son estáticas. Por ejemplo, la palabra clave `si`, siempre significa una condición, y `repite` siempre indica un bucle. Los nombres de los identificadores (`luz_actual`, `ruido_detectado`) se ligan a sus tipos (`numérico` o `cadena`) en tiempo de diseño cuando se usan en un contexto apropiado, aunque el lenguaje no exige una declaración explícita de tipo. Las Entidades como `Sonriente` también están ligadas estáticamente a su significado conceptual.
 

@@ -244,10 +244,10 @@ globals()['saludo'] = lambda x: print(x) #El nombre 'saludo' se genera dinámica
 ### Índice
 
 - [Introducción al Lenguaje "Caminante"](#introducción-al-lenguaje-caminante)
-- [Expresiones (Detección y Manipulación de Atributos)](#expresiones-detección-y-manipulación-de-atributos)
-- [Condicionales (Decisiones de Supervivencia)](#condicionales-decisiones-de-supervivencia)
-- [Iteración (Patrullas y Búsquedas Repetitivas)](#iteración-patrullas-y-búsquedas-repetitivas)
-- [Tipos de Datos (Los Elementos de los Backrooms)](#tipos-de-datos-los-elementos-de-los-backrooms)
+- [Expresiones](#expresiones)
+- [Condicionales](#condicionales)
+- [Iteración](#iteración)
+- [Tipos de Datos](#tipos-de-datos)
 - [Gramática BNF para "Caminante"](#gramática-bnf-para-caminante)
 - [Ejemplo de Programa en "Caminante"](#ejemplo-de-programa-en-caminante)
 - [Aspectos de Diseño del Lenguaje "Caminante"](#aspectos-de-diseño-del-lenguaje-caminante)

@@ -254,7 +254,9 @@ Por ejemplo,
 ```
 El lenguaje procesará estas detecciones o asignaciones, dándote información o modificando características.
 
-- Condicionales (Decisiones de Supervivencia): Puedes hacer que tu caminante tome decisiones críticas.
+Condicionales (Decisiones de Supervivencia): 
+
+Puedes hacer que tu caminante tome decisiones críticas.
 Si se cumple una condición `"hay una Entidad cerca"`, realizará una acción `"huye"`; si no, hará otra `"continúa explorando"`. 
 ```
 "Si 'peligro_cercano' 
@@ -262,7 +264,10 @@ Si se cumple una condición `"hay una Entidad cerca"`, realizará una acción `"
 si no
     'busca suministros'"
 ```
-Iteración (Patrullas y Búsquedas Repetitivas): Puedes ordenar al caminante que repita una acción un número específico de veces o hasta que una condición deje de cumplirse (o se cumpla). 
+
+Iteración (Patrullas y Búsquedas Repetitivas): 
+
+Puedes ordenar al caminante que repita una acción un número específico de veces o hasta que una condición deje de cumplirse (o se cumpla). 
 ```
  "Recorre el Nivel 10 veces: 'escanear_paredes'"
  "Mientras 'salida_no_encontrada'
@@ -272,10 +277,13 @@ Iteración (Patrullas y Búsquedas Repetitivas): Puedes ordenar al caminante que
 Tipos de Datos (Los Elementos de los Backrooms)
 "Caminante" entiende y maneja al menos dos tipos fundamentales de información, cruciales para navegar los Backrooms:
 
-Niveles/Cantidades (Numéricos): Representan los distintos Niveles de los Backrooms (0, 1, 2, etc.) o cantidades como `"estabilidad"` o `"recuentos"`. Por ejemplo: `0`, `999`, `3.14`.
+- Niveles/Cantidades (Numéricos):
+  Representan los distintos Niveles de los Backrooms (0, 1, 2, etc.) o cantidades como `"estabilidad"` o `"recuentos"`.
+  Por ejemplo: `0`, `999`, `3.14`.
 
-Atributos/Entidades (Cadenas de Texto): 
-Son descripciones de propiedades (`"iluminación"`), nombres de Entidades (`"Sonriente"`), o estados (`"seguro"`). Siempre van entre comillas. Por ejemplo: `"Nivel_Infinito"`, `"olor_a_humedad"`, `"Parásito"`.
+- Atributos/Entidades (Cadenas de Texto): 
+  Son descripciones de propiedades (`"iluminación"`), nombres de Entidades (`"Sonriente"`), o estados (`"seguro"`). Siempre van entre comillas.
+  Por ejemplo: `"Nivel_Infinito"`, `"olor_a_humedad"`, `"Parásito"`.
 
 ## Gramática BNF (Backus-Naur Form) para "Caminante"
 
@@ -365,7 +373,8 @@ sino
 # Generales
 Estos aspectos definen la base de cómo "Caminante" maneja la información y la estructura.
 
-Entidades: En "Caminante", las principales entidades que manipulan y existen son:
+Entidades: 
+En "Caminante", las principales entidades que manipulan y existen son:
 
 - Identificadores: Lugares con nombre para almacenar valores numéricos (como recuentos de anomalías o niveles) y cadenas de texto (como `iluminacion` o `Sonriente`).
 
@@ -383,19 +392,22 @@ Se refieren a cuándo se asocian nombres con sus significados.
 
 - Dinámicas (tiempo de ejecución): No hay ligaduras puramente dinámicas en este lenguaje simplificado. Los valores de los identificadores se determinan en tiempo de ejecución, pero la existencia del identificador y su uso conceptual se establecen de antemano.
 
-- Reglas de Alcance: El lenguaje "Caminante" presenta un alcance global y anidado estático.
+Reglas de Alcance: 
+"Caminante" presenta alcance global y anidado estático.
   
 Todos los identificadores declarados (ej. `detecta` ... y `guarda` en `<identificador>`) parecen tener un alcance global o, al menos, un alcance que abarca todo el bloque de código donde se definen y sus sub-bloques.
 
-Cuando se usan bloques dentro de si o mientras, los identificadores definidos en el programa exterior son accesibles dentro de esos bloques anidados, siguiendo un modelo de alcance. No hay un mecanismo explícito para definir identificadores locales a subprogramas (ya que no los tenemos definidos como tal).
+Cuando se usan bloques dentro de `si` o `mientras`, los identificadores definidos en el programa exterior son accesibles dentro de esos bloques anidados, siguiendo un modelo de alcance. No hay un mecanismo explícito para definir identificadores locales a subprogramas (ya que no los tenemos definidos como tal).
 
-Sistemas de Tipos: "Caminante" es un lenguaje con un sistema de tipos débil y dinámico, aunque con inferencia implícita basada en el contexto.
+Sistemas de Tipos: 
+"Caminante" es un lenguaje con un sistema de tipos débil y dinámico, aunque con inferencia implícita basada en el contexto.
 
 - Débil: Permite cierta flexibilidad. Por ejemplo, `manifestar` puede aceptar tanto un número como una cadena de texto. La operación `mas` puede concatenar cadenas o sumar números dependiendo del contexto.
 
 - Dinámico: El tipo de un identificador se determina y puede cambiar en tiempo de ejecución. Sin embargo, en la práctica, debido a la naturaleza de las operaciones, un identificador que guarda un número probablemente seguirá guardando números, y uno que guarda texto, texto. No hay declaración explícita de tipos. Los errores de tipo ("hola" mas 5) se detectarían en tiempo de ejecución.
 
-Soporte para Definir Subprogramas: El "Caminante" no tiene soporte directo para definir subprogramas (funciones o procedimientos) creados por el usuario. Las acciones como `mover`, `manifestar` o `transicionar_a` son comandos predefinidos del lenguaje, no subprogramas que el usuario pueda crear o modificar.
+Soporte para Definir Subprogramas: 
+"Caminante" no tiene soporte directo para definir subprogramas (funciones o procedimientos) creados por el usuario. Las acciones como `mover`, `manifestar` o `transicionar_a` son comandos predefinidos del lenguaje, no subprogramas que el usuario pueda crear o modificar.
 
 # Aspectos Específicos:
 Estos aspectos profundizan en cómo se estructura y ejecuta el código en "Caminante".
@@ -439,4 +451,5 @@ Los parámetros que se pasan a los comandos son principalmente datos (valores nu
 No hay un concepto explícito de unidades de medida o de tipo. Por ejemplo, si pasas `5` a `repite 5 veces:`, se asume que `5` es una cantidad de repeticiones, no "5 metros" o "5 segundos". El significado de la "unidad" está implícito en el nombre del comando.
 
 # Ambiente de Referenciamiento de los Subprogramas que Recibe como Parámetro (Chequeo estático o dinámico de subprogramas): 
-Este punto no aplica directamente a "Caminante" porque, como se mencionó, el lenguaje no tiene la capacidad de recibir subprogramas como parámetros (funciones de orden superior). Todos los comandos son fijos y predefinidos.
+Este punto no aplica directamente a "Caminante" porque, como se mencionó, el lenguaje no tiene la capacidad de recibir subprogramas como parámetros (funciones de orden superior). 
+Todos los comandos son fijos y predefinidos.

@@ -235,9 +235,36 @@ Dinámico: El nombre de una variable o función es generado o asociado en tiempo
 globals()['saludo'] = lambda x: print(x) #El nombre 'saludo' se genera dinámicamente
 ```
 # Lenguaje de Programación a Lenguaje Natural
+
 ## Lenguaje de Programación: "Caminante"
 
 ![image](https://github.com/user-attachments/assets/3bd9ff28-a38c-40ff-8b22-b969af3bb5ce)
+
+
+### Índice
+
+- [Introducción al Lenguaje "Caminante"](#introducción-al-lenguaje-caminante)
+- [Expresiones (Detección y Manipulación de Atributos)](#expresiones-detección-y-manipulación-de-atributos)
+- [Condicionales (Decisiones de Supervivencia)](#condicionales-decisiones-de-supervivencia)
+- [Iteración (Patrullas y Búsquedas Repetitivas)](#iteración-patrullas-y-búsquedas-repetitivas)
+- [Tipos de Datos (Los Elementos de los Backrooms)](#tipos-de-datos-los-elementos-de-los-backrooms)
+- [Gramática BNF para "Caminante"](#gramática-bnf-para-caminante)
+- [Ejemplo de Programa en "Caminante"](#ejemplo-de-programa-en-caminante)
+- [Aspectos de Diseño del Lenguaje "Caminante"](#aspectos-de-diseño-del-lenguaje-caminante)
+  - [Generales](#generales)
+    - [Entidades](#entidades)
+    - [Ligaduras](#ligaduras)
+    - [Reglas de Alcance](#reglas-de-alcance)
+    - [Sistemas de Tipos](#sistemas-de-tipos)
+    - [Soporte para Definir Subprogramas](#soporte-para-definir-subprogramas)
+  - [Específicos](#específicos)
+    - [Estructura Estática](#estructura-estática)
+    - [Recursividad](#recursividad)
+    - [Control](#control)
+    - [Métodos de Pasaje de Parámetros](#métodos-de-pasaje-de-parámetros)
+    - [Sobrecarga y Polimorfismo](#sobrecarga-y-polimorfismo)
+    - [Tipos de los Parámetros](#tipos-de-los-parámetros)
+    - [Ambiente de Referenciamiento de Subprogramas](#ambiente-de-referenciamiento-de-subprogramas)
 
 Imagina que tu código es un "Caminante", una entidad que se mueve a través de los infinitos y extraños Backrooms. 
 Este lenguaje, llamado "Caminante", te permite darle instrucciones a este caminante para interactuar con los Niveles y las Entidades que habitan este laberinto. 

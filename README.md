@@ -505,75 +505,67 @@ Todos los comandos son fijos y predefinidos.
 # Diagrama Connway
 
 ```mermaid
-
 graph TD
-    A[<programa>] --> B[<instruccion>]
-    A --> A2[<instruccion> <programa>]
+    programa --> instruccion
+    programa --> instruccion_programa
 
-    B --> C1[<declaracion_atributo>]
-    B --> C2[<evaluacion_condicional>]
-    B --> C3[<ciclo_exploracion>]
-    B --> C4[<accion_basica>]
+    instruccion --> declaracion_atributo
+    instruccion --> evaluacion_condicional
+    instruccion --> ciclo_exploracion
+    instruccion --> accion_basica
 
-    C1 --> D1["establece" <identificador> "a" <valor>]
-    C1 --> D2["detecta" <atributo_backroom> "en" <lugar> "y guarda en" <identificador>]
+    declaracion_atributo --> establece_valor
+    declaracion_atributo --> detecta_y_guarda
 
-    C2 --> E1["si" <condicion_backroom> "," "entonces" <programa>]
-    C2 --> E2["si" <condicion_backroom> "," "entonces" <programa> "sino" <programa>]
+    evaluacion_condicional --> si_entonces
+    evaluacion_condicional --> si_entonces_sino
 
-    C3 --> F1["repite" <numero> "veces:" <programa>]
-    C3 --> F2["mientras" <condicion_backroom> ":" <programa>]
+    ciclo_exploracion --> repite
+    ciclo_exploracion --> mientras
 
-    C4 --> G1["mover" <direccion>]
-    C4 --> G2["interactuar_con" <entidad>]
-    C4 --> G3["manifestar" <valor>]
-    C4 --> G4["transicionar_a" <lugar>]
+    accion_basica --> mover
+    accion_basica --> interactuar_con
+    accion_basica --> manifestar
+    accion_basica --> transicionar_a
 
-    subgraph VALOR
-        V1[<numero>]
-        V2[<cadena_texto>]
-        V3[<identificador>]
-        V4[<expresion_numerica>]
+    establece_valor --> valor
+    detecta_y_guarda --> atributo
+    detecta_y_guarda --> lugar
+    detecta_y_guarda --> identificador
+
+    valor --> numero
+    valor --> cadena_texto
+    valor --> identificador_val
+    valor --> expresion_numerica
+
+    expresion_numerica --> suma
+    expresion_numerica --> resta
+    expresion_numerica --> multiplicacion
+    expresion_numerica --> division
+    expresion_numerica --> parentesis
+
+    si_entonces --> condicion
+    si_entonces_sino --> condicion
+
+    mientras --> condicion
+
+    condicion --> comparacion_valor
+    condicion --> atributo_es_cadena
+    condicion --> numero_mayor
+    condicion --> entidad_en_lugar
+
+    mover --> direccion
+    interactuar_con --> entidad
+    transicionar_a --> lugar
+
+    subgraph Terminales
+        numero
+        cadena_texto
+        identificador_val
+        atributo
+        lugar
+        entidad
+        direccion
     end
-    D1 --> VALOR
 
-    subgraph EXP_NUM
-        EN1[<numero>]
-        EN2[<identificador>]
-        EN3[<expresion_numerica> "mas" <expresion_numerica>]
-        EN4[<expresion_numerica> "menos" <expresion_numerica>]
-        EN5[<expresion_numerica> "multiplicado_por" <expresion_numerica>]
-        EN6[<expresion_numerica> "dividido_por" <expresion_numerica>]
-        EN7["(" <expresion_numerica> ")"]
-    end
-    V4 --> EXP_NUM
-
-    subgraph CONDICION
-        CND1[<identificador> "es" <valor>]
-        CND2[<atributo_backroom> "es" <cadena_texto>]
-        CND3[<numero> "es_mayor_que" <numero>]
-        CND4[<entidad> "esta_presente_en" <lugar>]
-    end
-    E1 --> CONDICION
-    E2 --> CONDICION
-    F2 --> CONDICION
-
-    subgraph TERMINALES
-        T1[<numero> ::= 0, 1, 2, ...]
-        T2[<cadena_texto> ::= "texto"]
-        T3[<identificador> ::= nombre_variable]
-        T4[<atributo_backroom> ::= "iluminacion", "humedad", etc.]
-        T5[<lugar> ::= "Nivel_0", "Nivel_actual", etc.]
-        T6[<entidad> ::= "Sonriente", "Sabueso", etc.]
-        T7[<direccion> ::= "adelante", "atras", "izquierda", "derecha"]
-    end
-
-    VALOR --> T1
-    VALOR --> T2
-    VALOR --> T3
-    D2 --> T4
-    D2 --> T5
-    G1 --> T7
-    G2 --> T6
-    G4 --> T5
 ```

@@ -179,6 +179,10 @@ https://rpp.pe/capital/mundo/que-son-los-backrooms-la-pesadilla-que-podria-aterr
 
 https://esolangs.org/wiki/Backrooms
 
+
+# Gramática Sintáctica de BACKROOMS
+Gramática completa del lenguaje esotérico BACKROOMS, expresada en diagrama sintáctico visual que representa todas sus producciones.
+
 ### Árbol Sintáctico
 
 ![image](https://github.com/user-attachments/assets/8635c3f8-0cb1-4e4b-afc2-e41221d78036)

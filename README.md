@@ -1,4 +1,6 @@
-# Características de Lenguajes de Programación
+# UNaHur - Características de Lenguajes de Programación - 2025
+- Prof.: Mg. Pablo Pandolfo
+- Alumno: Sebastián Brandariz
 
 # TP 1
 
@@ -560,7 +562,3 @@ graph TD
     L4 --> M6
 
 ```
-
-# UNaHur - Características de Lenguajes de Programación - 2025
-- Prof.: Mg. Pablo Pandolfo
-- Alumno: Sebastián Brandariz

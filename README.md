@@ -1,3 +1,5 @@
+# Características de Lenguajes de Programación
+
 # TP 1
 
 ```mermaid
@@ -44,9 +46,6 @@ LP --> HLP
 LP --> DDP
 DDP --> PDP
 ```
-# Características de Lenguajes de Programación
-
-
 
 ## TP 3 - Lenguaje Backrooms (Esotérico)
 

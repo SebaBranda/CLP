@@ -193,7 +193,7 @@ Gramática completa del lenguaje esotérico BACKROOMS, expresada en diagrama sin
 ![image](https://github.com/user-attachments/assets/54613da8-e04a-4719-b4ce-311614f390d1)
 
 # TP 5
-# Tipos de *Binding* en Parámetros
+## Tipos de *Binding* en Parámetros
 
 | **Binding** | **¿Qué define?** | **Estático** | **Dinámico** | **Diferencia entre Estático y Dinámico** | **Ejemplos** |
 |-------------|------------------|--------------|--------------|------------------------------------------|-------------|
@@ -205,7 +205,7 @@ Gramática completa del lenguaje esotérico BACKROOMS, expresada en diagrama sin
 | **De tipo de paso** | Indica la estrategia con la que se pasa el parámetro (valor, referencia, nombre, perezoso, etc.). | Se fija por el lenguaje o en la definición de la función. No varía al llamar. | Se determina en tiempo de ejecución o puede variar según el uso del parámetro. | Estático: el paso es siempre el mismo. Dinámico: puede elegirse o inferirse durante la ejecución. | **Estático**: `int f(int x)` *(C, por valor)*<br>**Dinámico**: `let x = lazy (f())` *(OCaml, evaluación diferida/perezosa)* |
 
 
-##Ejemplos de Binding: 
+## Ejemplos de Binding: 
 
 Binding de Alcance (Scope Binding):
 
@@ -404,7 +404,7 @@ sino
 Estos aspectos definen la base de cómo "Caminante" maneja la información y la estructura.
 
 Entidades: 
-En "Caminante", las principales entidades que manipulan y existen son:
+Las principales entidades que manipulan y existen son:
 
 - Identificadores: Lugares con nombre para almacenar valores numéricos (como recuentos de anomalías o niveles) y cadenas de texto (como `iluminacion` o `Sonriente`).
 
@@ -464,7 +464,7 @@ Este aspecto se aplica principalmente a subprogramas definidos por el usuario, q
 
 # Sobrecarga y Polimorfismo: 
 
-El lenguaje "Caminante" tiene un polimorfismo ad-hoc limitado (sobrecarga) en algunas operaciones y comandos.
+El lenguaje "Caminante" tiene un polimorfismo limitado (sobrecarga) en algunas operaciones y comandos.
 
 La operación `mas` está sobrecargada: puede realizar suma aritmética (10 mas 5) o concatenación de cadenas ("hola" mas "mundo"). El "compilador" o intérprete decidirá qué operación aplicar basándose en los tipos de los operandos.
 
@@ -560,3 +560,6 @@ graph TD
     L4 --> M6
 
 ```
+UNaHur - Características de Lenguajes de Programación - 2025
+Prof.: Mg. Pablo Pandolfo
+Alumno: Sebastián Brandariz

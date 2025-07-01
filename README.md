@@ -542,7 +542,7 @@ graph TD
     %% Terminales
     subgraph Terminales
         M1[numero: 0, 1, 2...]
-        M2[cadena_texto: "ejemplo"]
+        M2[cadena_texto: ejemplo]
         M3[identificador]
         M4[atributo_backroom: iluminacion, humedad...]
         M5[lugar: Nivel_0, zona_segura...]

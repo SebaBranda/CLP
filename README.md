@@ -505,67 +505,76 @@ Todos los comandos son fijos y predefinidos.
 # Diagrama Connway
 
 ```mermaid
+
 graph TD
-    programa --> instruccion
-    programa --> instruccion_programa
+    A[programa]
+    A --> B1[instruccion]
+    A --> B2[instruccion + programa]
 
-    instruccion --> declaracion_atributo
-    instruccion --> evaluacion_condicional
-    instruccion --> ciclo_exploracion
-    instruccion --> accion_basica
+    B1 --> C1[declaracion_atributo]
+    B1 --> C2[evaluacion_condicional]
+    B1 --> C3[ciclo_exploracion]
+    B1 --> C4[accion_basica]
 
-    declaracion_atributo --> establece_valor
-    declaracion_atributo --> detecta_y_guarda
+    %% Declaración de atributos
+    C1 --> D1[establece ident = valor]
+    C1 --> D2[detecta attr en lugar y guarda en ident]
 
-    evaluacion_condicional --> si_entonces
-    evaluacion_condicional --> si_entonces_sino
+    %% Evaluación condicional
+    C2 --> E1[si cond entonces prog]
+    C2 --> E2[si cond entonces prog sino prog]
 
-    ciclo_exploracion --> repite
-    ciclo_exploracion --> mientras
+    %% Ciclos
+    C3 --> F1[repite N veces: prog]
+    C3 --> F2[mientras cond: prog]
 
-    accion_basica --> mover
-    accion_basica --> interactuar_con
-    accion_basica --> manifestar
-    accion_basica --> transicionar_a
+    %% Acciones básicas
+    C4 --> G1[mover dir]
+    C4 --> G2[interactuar_con entidad]
+    C4 --> G3[manifestar valor]
+    C4 --> G4[transicionar_a lugar]
 
-    establece_valor --> valor
-    detecta_y_guarda --> atributo
-    detecta_y_guarda --> lugar
-    detecta_y_guarda --> identificador
+    %% Valores y expresiones
+    D1 --> H1[valor]
+    H1 --> I1[numero]
+    H1 --> I2[cadena_texto]
+    H1 --> I3[identificador]
+    H1 --> I4[expresion_numerica]
 
-    valor --> numero
-    valor --> cadena_texto
-    valor --> identificador_val
-    valor --> expresion_numerica
+    I4 --> J1[a mas b]
+    I4 --> J2[a menos b]
+    I4 --> J3[a multiplicado_por b]
+    I4 --> J4[a dividido_por b]
+    I4 --> J5[(expr)]
 
-    expresion_numerica --> suma
-    expresion_numerica --> resta
-    expresion_numerica --> multiplicacion
-    expresion_numerica --> division
-    expresion_numerica --> parentesis
+    %% Condiciones
+    E1 --> K1[condicion]
+    E2 --> K1
+    F2 --> K1
 
-    si_entonces --> condicion
-    si_entonces_sino --> condicion
+    K1 --> L1[ident es valor]
+    K1 --> L2[attr es cadena]
+    K1 --> L3[num > num]
+    K1 --> L4[entidad en lugar]
 
-    mientras --> condicion
-
-    condicion --> comparacion_valor
-    condicion --> atributo_es_cadena
-    condicion --> numero_mayor
-    condicion --> entidad_en_lugar
-
-    mover --> direccion
-    interactuar_con --> entidad
-    transicionar_a --> lugar
-
+    %% Terminales
     subgraph Terminales
-        numero
-        cadena_texto
-        identificador_val
-        atributo
-        lugar
-        entidad
-        direccion
+        M1[numero: 0, 1, 2...]
+        M2[cadena_texto: "ejemplo"]
+        M3[identificador]
+        M4[atributo_backroom: iluminacion, humedad...]
+        M5[lugar: Nivel_0, zona_segura...]
+        M6[entidad: Sonriente, Sabueso...]
+        M7[direccion: adelante, atras...]
     end
+
+    G1 --> M7
+    G2 --> M6
+    G4 --> M5
+    D2 --> M4
+    D2 --> M5
+    D2 --> M3
+    L2 --> M4
+    L4 --> M6
 
 ```

@@ -465,7 +465,7 @@ El "Caminante" no tiene soporte explícito para la recursividad. Dado que no se 
 
 - Iteración (Bucles): Las instrucciones `repite <numero> veces:` y `mientras <condicion>:` permiten la repetición de un bloque de código. No hay un control de bucle for genérico o do-while.
 
-# Métodos de Pasaje de Parámetros: 
+## Métodos de Pasaje de Parámetros: 
 
 Este aspecto se aplica principalmente a subprogramas definidos por el usuario, que no existen en "Caminante". Sin embargo, podemos interpretarlo para los comandos predefinidos:
 
@@ -473,7 +473,7 @@ Este aspecto se aplica principalmente a subprogramas definidos por el usuario, q
 
 - Correspondencia entre Parámetros Formales y Actuales: En los comandos predefinidos, la correspondencia es por posición. Por ejemplo, en `transicionar_a <lugar>`, `<lugar>` es el primer y único "parámetro". No hay nombres de parámetros formales para ligar a los actuales, simplemente la posición.
 
-# Sobrecarga y Polimorfismo: 
+## Sobrecarga y Polimorfismo: 
 
 El lenguaje "Caminante" tiene un polimorfismo limitado (sobrecarga) en algunas operaciones y comandos.
 
@@ -483,7 +483,7 @@ El comando `manifestar` también es polimórfico en el sentido de que puede acep
 
 No hay polimorfismo paramétrico (como genéricos) o polimorfismo de subtipos (herencia) ya que no hay tipos de datos complejos definidos por el usuario ni jerarquías.
 
-# Tipos de los Parámetros: 
+## Tipos de los Parámetros: 
 
 Datos y Unidades:
 

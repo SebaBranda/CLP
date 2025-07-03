@@ -50,7 +50,7 @@ DDP --> PDP
 ```
 ## TP 2 - Lenguajes de Programación
 
-En esta planilla colaborativba, se investigaron 180 lenguajes de programación, desde su año de creación, incluyendo Paradigma, Generación del lenguaje, Concurrencia, entre otroas características.
+En esta planilla colaborativba, se investigaron 180 lenguajes de programación, desde su año de creación, incluyendo Paradigma, Generación del lenguaje, Concurrencia, entre otras características.
 
 Acceso a [Planilla de lenguajes](https://docs.google.com/spreadsheets/d/19aTSzIjQNs6RBNJFz0bftTlqKr-uWbohbBZnxmP0-r0/edit?gid=0#gid=0)
 
@@ -148,7 +148,7 @@ control : "[" *instruccion "]"
           "{" *instruccion "}"
 operacion : uno de + - * /
 numero : 1*digito
-digito : uno de %x30-39  ; #'0'-'9'
+digito : uno de %x30-%x39  ; #'0'-'9'
 ```
 ### Semántica y Ejemplos
 Interpretación
@@ -276,13 +276,15 @@ globals()['saludo'] = lambda x: print(x) #El nombre 'saludo' se genera dinámica
     - [Tipos de los Parámetros](#tipos-de-los-parámetros)
     - [Ambiente de Referenciamiento de Subprogramas](#ambiente-de-referenciamiento-de-subprogramas)
 
+## Introducción al Lenguaje "Caminante"
 Imagina que tu código es un "Caminante", una entidad que se mueve a través de los infinitos y extraños Backrooms. 
 Este lenguaje, llamado "Caminante", te permite darle instrucciones a este caminante para interactuar con los Niveles y las Entidades que habitan este laberinto. 
 Cada instrucción se asemeja a una acción que tomarías o una observación que harías dentro de los Backrooms.
 
 El lenguaje se compone de:
 
-Expresiones (Detección y Manipulación de Atributos): Puedes `"detectar"` o `"establecer"` atributos de tu entorno o de ti mismo. 
+## Expresiones (Detección y Manipulación de Atributos): 
+Puedes `"detectar"` o `"establecer"` atributos de tu entorno o de ti mismo. 
 Por ejemplo, 
 ```
 "detecta 'humedad' en el Nivel actual"
@@ -291,12 +293,12 @@ Por ejemplo,
 ```
 El lenguaje procesará estas detecciones o asignaciones, dándote información o modificando características.
 
-Condicionales (Decisiones de Supervivencia): 
+## Condicionales (Decisiones de Supervivencia): 
 
 Puedes hacer que tu caminante tome decisiones críticas.
 Si se cumple una condición `"hay una Entidad cerca"`, realizará una acción `"huye"`; si no, hará otra `"continúa explorando"`. 
 ```
-"Si 'peligro_cercano' 
+"Si 'peligro_cercano', 
     'corre al zona_segura'
 si no
     'busca suministros'"
@@ -307,11 +309,11 @@ Iteración (Patrullas y Búsquedas Repetitivas):
 Puedes ordenar al caminante que repita una acción un número específico de veces o hasta que una condición deje de cumplirse (o se cumpla). 
 ```
  "Recorre el Nivel 10 veces: 'escanear_paredes'"
- "Mientras 'salida_no_encontrada'
+ "Mientras 'salida_no_encontrada',
     'muévete_aleatoriamente'"
 ```
 
-Tipos de Datos (Los Elementos de los Backrooms)
+## Tipos de Datos (Los Elementos de los Backrooms)
 "Caminante" entiende y maneja al menos dos tipos fundamentales de información, cruciales para navegar los Backrooms:
 
 - Niveles/Cantidades (Numéricos):
@@ -421,7 +423,7 @@ Las principales entidades que manipulan y existen son:
 
 - Entidades Nombradas: Referencias a las criaturas de los Backrooms, como `Sonriente`, `Sabueso`, etc.
 
-# Ligaduras: 
+## Ligaduras: 
 
 Se refieren a cuándo se asocian nombres con sus significados.
 
@@ -446,7 +448,7 @@ Sistemas de Tipos:
 Soporte para Definir Subprogramas: 
 "Caminante" no tiene soporte directo para definir subprogramas (funciones o procedimientos) creados por el usuario. Las acciones como `mover`, `manifestar` o `transicionar_a` son comandos predefinidos del lenguaje, no subprogramas que el usuario pueda crear o modificar.
 
-# Aspectos Específicos:
+## Aspectos Específicos:
 Estos aspectos profundizan en cómo se estructura y ejecuta el código en "Caminante".
 
 Estructura Estática: El lenguaje tiene una estructura estática clara y lineal de arriba hacia abajo. El flujo de control está determinado por las condicionales `si` y las iteraciones `repite`, `mientras`. No hay saltos arbitrarios o GOTO. 
@@ -467,7 +469,7 @@ Este aspecto se aplica principalmente a subprogramas definidos por el usuario, q
 
 - Pasaje por Valor (implícito): Cuando le das un valor a un comando (ej. `mover adelante, transicionar_a Nivel_0`), el comando recibe una copia de ese valor. No hay forma de que el comando modifique el valor original de un identificador que le pasaste.
 
-- Correspondencia entre Parámetros Formales y Actuales: En los comandos predefinidos, la correspondencia es por posición. Por ejemplo, en `transicionar_a <lugar>, <lugar>` es el primer y único "parámetro". No hay nombres de parámetros formales para ligar a los actuales, simplemente la posición.
+- Correspondencia entre Parámetros Formales y Actuales: En los comandos predefinidos, la correspondencia es por posición. Por ejemplo, en `transicionar_a <lugar>`, `<lugar>` es el primer y único "parámetro". No hay nombres de parámetros formales para ligar a los actuales, simplemente la posición.
 
 # Sobrecarga y Polimorfismo: 
 

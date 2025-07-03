@@ -304,7 +304,7 @@ si no
     'busca suministros'"
 ```
 
-Iteración (Patrullas y Búsquedas Repetitivas): 
+## Iteración (Patrullas y Búsquedas Repetitivas): 
 
 Puedes ordenar al caminante que repita una acción un número específico de veces o hasta que una condición deje de cumplirse (o se cumpla). 
 ```
@@ -408,8 +408,8 @@ sino
     `manifestar` "Disminuyendo estabilidad..."
 ```
 
-## Aspectos de Diseño del Lenguaje "Caminante"
-# Generales
+# Aspectos de Diseño del Lenguaje "Caminante"
+## Generales
 Estos aspectos definen la base de cómo "Caminante" maneja la información y la estructura.
 
 Entidades: 
@@ -431,21 +431,21 @@ Se refieren a cuándo se asocian nombres con sus significados.
 
 - Dinámicas (tiempo de ejecución): No hay ligaduras puramente dinámicas en este lenguaje simplificado. Los valores de los identificadores se determinan en tiempo de ejecución, pero la existencia del identificador y su uso conceptual se establecen de antemano.
 
-Reglas de Alcance: 
+## Reglas de Alcance: 
 "Caminante" presenta alcance global y anidado estático.
   
 Todos los identificadores declarados (ej. `detecta` ... y `guarda` en `<identificador>`) parecen tener un alcance global o, al menos, un alcance que abarca todo el bloque de código donde se definen y sus sub-bloques.
 
 Cuando se usan bloques dentro de `si` o `mientras`, los identificadores definidos en el programa exterior son accesibles dentro de esos bloques anidados, siguiendo un modelo de alcance. No hay un mecanismo explícito para definir identificadores locales a subprogramas (ya que no los tenemos definidos como tal).
 
-Sistemas de Tipos: 
+## Sistemas de Tipos: 
 "Caminante" es un lenguaje con un sistema de tipos débil y dinámico, aunque con inferencia implícita basada en el contexto.
 
 - Débil: Permite cierta flexibilidad. Por ejemplo, `manifestar` puede aceptar tanto un número como una cadena de texto. La operación `mas` puede concatenar cadenas o sumar números dependiendo del contexto.
 
 - Dinámico: El tipo de un identificador se determina y puede cambiar en tiempo de ejecución. Sin embargo, en la práctica, debido a la naturaleza de las operaciones, un identificador que guarda un número probablemente seguirá guardando números, y uno que guarda texto, texto. No hay declaración explícita de tipos. Los errores de tipo ("hola" mas 5) se detectarían en tiempo de ejecución.
 
-Soporte para Definir Subprogramas: 
+## Soporte para Definir Subprogramas: 
 "Caminante" no tiene soporte directo para definir subprogramas (funciones o procedimientos) creados por el usuario. Las acciones como `mover`, `manifestar` o `transicionar_a` son comandos predefinidos del lenguaje, no subprogramas que el usuario pueda crear o modificar.
 
 ## Aspectos Específicos:
@@ -453,9 +453,11 @@ Estos aspectos profundizan en cómo se estructura y ejecuta el código en "Camin
 
 Estructura Estática: El lenguaje tiene una estructura estática clara y lineal de arriba hacia abajo. El flujo de control está determinado por las condicionales `si` y las iteraciones `repite`, `mientras`. No hay saltos arbitrarios o GOTO. 
 
-Recursividad: El "Caminante" no tiene soporte explícito para la recursividad. Dado que no se pueden definir subprogramas, no hay forma de que una función se llame a sí misma. Las acciones repetitivas se manejan exclusivamente a través de los constructos de iteración `repite`, `mientras`.
+## Recursividad: 
 
-Control: El control del flujo de ejecución se logra mediante:
+El "Caminante" no tiene soporte explícito para la recursividad. Dado que no se pueden definir subprogramas, no hay forma de que una función se llame a sí misma. Las acciones repetitivas se manejan exclusivamente a través de los constructos de iteración `repite`, `mientras`.
+
+## Control: El control del flujo de ejecución se logra mediante:
 
 - Secuencia: Las instrucciones se ejecutan en el orden en que aparecen.
 
@@ -489,11 +491,11 @@ Los parámetros que se pasan a los comandos son principalmente datos (valores nu
 
 No hay un concepto explícito de unidades de medida o de tipo. Por ejemplo, si pasas `5` a `repite 5 veces:`, se asume que `5` es una cantidad de repeticiones, no "5 metros" o "5 segundos". El significado de la "unidad" está implícito en el nombre del comando.
 
-# Ambiente de Referenciamiento de los Subprogramas que Recibe como Parámetro (Chequeo estático o dinámico de subprogramas): 
+## Ambiente de Referenciamiento de los Subprogramas que Recibe como Parámetro (Chequeo estático o dinámico de subprogramas): 
 Este punto no aplica directamente a "Caminante" porque, como se mencionó, el lenguaje no tiene la capacidad de recibir subprogramas como parámetros (funciones de orden superior). 
 Todos los comandos son fijos y predefinidos.
 
-# Diagrama Connway
+## Diagrama Connway
 
 ```mermaid
 

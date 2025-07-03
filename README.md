@@ -387,113 +387,116 @@ Puedes ordenar al caminante que repita una acción un número específico de vec
 
 ## Ejemplo de Programa en "Caminante":
 ```
-detecta `iluminacion` en `Nivel_actual` y guarda en `luz_actual`
-si `luz_actual` es "baja",
-entonces
-  `manifestar` "¡Oscuridad! Buscando una fuente de luz."
-  `repite 5 veces:`
-    `mover adelante`
-    `detecta` "ruido" en `Nivel_actual` y guarda en `ruido_detectado`
-    si `ruido_detectado` es "alto", entonces
-      `manifestar` "¡Ruido sospechoso! Podría haber una Entidad."
-      `interactuar_con "Sonriente"`
-      si `"Sonriente" esta_presente_en Nivel_actual`, entonces
-        `transicionar_a Nivel_0`
-      sino
-        `manifestar` "Falsa alarma. Continuando."
+detecta "iluminacion" en Nivel_actual y guarda en luz_actual
+
+si luz_actual es "baja", entonces
+    manifestar "¡Oscuridad! Buscando una fuente de luz."
+    repite 5 veces:
+        mover adelante
+        detecta "ruido" en Nivel_actual y guarda en ruido_detectado
+        si ruido_detectado es "alto", entonces
+            manifestar "¡Ruido sospechoso!"
+            interactuar_con "Sonriente"
+            si "Sonriente" esta_presente_en Nivel_actual, entonces
+                transicionar_a Nivel_0
+            sino
+                manifestar "Falsa alarma"
 sino
-  `manifestar` "Nivel bien iluminado. Explorando con cautela."
-  mientras `estabilidad_nivel es_mayor_que 10:`
-    `establece` "estabilidad_nivel" a `estabilidad_nivel menos 1`
-    `manifestar` "Disminuyendo estabilidad..."
+    manifestar "Nivel bien iluminado. Explorando"
+    mientras estabilidad_nivel es_mayor_que 10:
+        establece "estabilidad_nivel" a estabilidad_nivel menos 1
+        manifestar "Disminuyendo estabilidad..."
+
 ```
 
-# Aspectos de Diseño del Lenguaje "Caminante"
-## Generales
-Estos aspectos definen la base de cómo "Caminante" maneja la información y la estructura.
+## Aspectos de Diseño del Lenguaje *Caminante*
 
-Entidades: 
-Las principales entidades que manipulan y existen son:
+### 1. Entidades y Tipos
 
-- Identificadores: Lugares con nombre para almacenar valores numéricos (como recuentos de anomalías o niveles) y cadenas de texto (como `iluminacion` o `Sonriente`).
+#### Entidades
 
-- Literales: Los valores directos que se usan en el código, como `0`, `10` o `peligro`.
+Las principales entidades que manipulan y existen en *Caminante* son:
 
-- Atributos de los Backrooms: Conceptos predefinidos como `iluminacion`, `humedad`, `ruido`, `estabilidad_nivel`. Son identificadores globales implícitos del entorno de los Backrooms.
+- **Identificadores:** Lugares con nombre para almacenar valores numéricos (como recuentos de anomalías o niveles) y cadenas de texto (como `iluminacion` o `Sonriente`).
+- **Literales:** Valores directos como `0`, `10` o `"peligro"`.
+- **Atributos de los Backrooms:** Conceptos predefinidos como `iluminacion`, `humedad`, `ruido`, `estabilidad_nivel`. Son identificadores globales implícitos del entorno.
+- **Entidades Nombradas:** Criaturas de los Backrooms, como `Sonriente`, `Sabueso`, etc.
 
-- Entidades Nombradas: Referencias a las criaturas de los Backrooms, como `Sonriente`, `Sabueso`, etc.
+#### Sistema de Tipos
 
-## Ligaduras: 
+*Caminante* posee un sistema de tipos **débil** y **dinámico**, con inferencia implícita:
 
-Se refieren a cuándo se asocian nombres con sus significados.
+- **Débil:** Operaciones como `mas` pueden realizar suma o concatenación.
+- **Dinámico:** El tipo de un identificador se determina en tiempo de ejecución.
+- **Inferencia:** No hay declaración explícita de tipos; el contexto define el tipo.
 
-- Estáticas (tiempo de compilación/diseño): La mayoría de las ligaduras son estáticas. Por ejemplo, la palabra clave `si`, siempre significa una condición, y `repite` siempre indica un bucle. Los nombres de los identificadores (`luz_actual`, `ruido_detectado`) se ligan a sus tipos (`numérico` o `cadena`) en tiempo de diseño cuando se usan en un contexto apropiado, aunque el lenguaje no exige una declaración explícita de tipo. Las Entidades como `Sonriente` también están ligadas estáticamente a su significado conceptual.
+#### Tipos de Parámetros
 
-- Dinámicas (tiempo de ejecución): No hay ligaduras puramente dinámicas en este lenguaje simplificado. Los valores de los identificadores se determinan en tiempo de ejecución, pero la existencia del identificador y su uso conceptual se establecen de antemano.
+Los comandos reciben principalmente **valores numéricos** o **cadenas de texto**. No hay unidades explícitas (como "metros" o "segundos"), el significado se infiere del comando.
 
-## Reglas de Alcance: 
-"Caminante" presenta alcance global y anidado estático.
-  
-Todos los identificadores declarados (ej. `detecta` ... y `guarda` en `<identificador>`) parecen tener un alcance global o, al menos, un alcance que abarca todo el bloque de código donde se definen y sus sub-bloques.
+---
 
-Cuando se usan bloques dentro de `si` o `mientras`, los identificadores definidos en el programa exterior son accesibles dentro de esos bloques anidados, siguiendo un modelo de alcance. No hay un mecanismo explícito para definir identificadores locales a subprogramas (ya que no los tenemos definidos como tal).
+### 2. Ligaduras y Alcance
 
-## Sistemas de Tipos: 
-"Caminante" es un lenguaje con un sistema de tipos débil y dinámico, aunque con inferencia implícita basada en el contexto.
+#### Ligaduras
 
-- Débil: Permite cierta flexibilidad. Por ejemplo, `manifestar` puede aceptar tanto un número como una cadena de texto. La operación `mas` puede concatenar cadenas o sumar números dependiendo del contexto.
+Asociación de nombres a significados:
 
-- Dinámico: El tipo de un identificador se determina y puede cambiar en tiempo de ejecución. Sin embargo, en la práctica, debido a la naturaleza de las operaciones, un identificador que guarda un número probablemente seguirá guardando números, y uno que guarda texto, texto. No hay declaración explícita de tipos. Los errores de tipo ("hola" mas 5) se detectarían en tiempo de ejecución.
+- **Estáticas:** La mayoría de las ligaduras son estáticas. Por ejemplo, `si` siempre implica una condición.
+- **Dinámicas:** No hay ligaduras puramente dinámicas. El valor de los identificadores se define en ejecución, pero su existencia y uso están definidos en diseño.
 
-## Soporte para Definir Subprogramas: 
-"Caminante" no tiene soporte directo para definir subprogramas (funciones o procedimientos) creados por el usuario. Las acciones como `mover`, `manifestar` o `transicionar_a` son comandos predefinidos del lenguaje, no subprogramas que el usuario pueda crear o modificar.
+#### Reglas de Alcance
 
-## Aspectos Específicos:
-Estos aspectos profundizan en cómo se estructura y ejecuta el código en "Caminante".
+*Caminante* tiene alcance **global** y **anidado estático**:
 
-Estructura Estática: El lenguaje tiene una estructura estática clara y lineal de arriba hacia abajo. El flujo de control está determinado por las condicionales `si` y las iteraciones `repite`, `mientras`. No hay saltos arbitrarios o GOTO. 
+- Los identificadores definidos tienen visibilidad en su bloque y sub-bloques.
+- No hay mecanismos explícitos para variables locales.
 
-## Recursividad: 
+---
 
-El "Caminante" no tiene soporte explícito para la recursividad. Dado que no se pueden definir subprogramas, no hay forma de que una función se llame a sí misma. Las acciones repetitivas se manejan exclusivamente a través de los constructos de iteración `repite`, `mientras`.
+### 3. Control del Flujo
 
-## Control: El control del flujo de ejecución se logra mediante:
+#### Estructura Estática
 
-- Secuencia: Las instrucciones se ejecutan en el orden en que aparecen.
+El código sigue una estructura clara, lineal, de arriba hacia abajo. El flujo depende de condicionales (`si`) e iteraciones (`repite`, `mientras`). No hay saltos como `goto`.
 
-- Selección (Condicionales): La instrucción `si <condicion>, entonces <programa>` `sino, <programa>` permite elegir entre diferentes caminos de ejecución basados en una condición.
+#### Control (Secuencia, Selección, Iteración)
 
-- Iteración (Bucles): Las instrucciones `repite <numero> veces:` y `mientras <condicion>:` permiten la repetición de un bloque de código. No hay un control de bucle for genérico o do-while.
+- **Secuencia:** Las instrucciones se ejecutan en orden.
+- **Selección:** Con `si <condicion>, entonces <bloque> [sino <bloque>]`.
+- **Iteración:** Con `repite <numero> veces:` y `mientras <condicion>:`.
 
-## Métodos de Pasaje de Parámetros: 
+#### Recursividad
 
-Este aspecto se aplica principalmente a subprogramas definidos por el usuario, que no existen en "Caminante". Sin embargo, podemos interpretarlo para los comandos predefinidos:
+No hay soporte para recursividad, ya que no se permiten subprogramas definidos por el usuario.
 
-- Pasaje por Valor (implícito): Cuando le das un valor a un comando (ej. `mover adelante, transicionar_a Nivel_0`), el comando recibe una copia de ese valor. No hay forma de que el comando modifique el valor original de un identificador que le pasaste.
+---
 
-- Correspondencia entre Parámetros Formales y Actuales: En los comandos predefinidos, la correspondencia es por posición. Por ejemplo, en `transicionar_a <lugar>`, `<lugar>` es el primer y único "parámetro". No hay nombres de parámetros formales para ligar a los actuales, simplemente la posición.
+### 4. Subprogramas y Parámetros
 
-## Sobrecarga y Polimorfismo: 
+#### Soporte para Subprogramas
 
-El lenguaje "Caminante" tiene un polimorfismo limitado (sobrecarga) en algunas operaciones y comandos.
+*Caminante* no permite definir funciones o procedimientos. Todas las acciones (`mover`, `manifestar`, etc.) son comandos predefinidos.
 
-La operación `mas` está sobrecargada: puede realizar suma aritmética (10 mas 5) o concatenación de cadenas ("hola" mas "mundo"). El "compilador" o intérprete decidirá qué operación aplicar basándose en los tipos de los operandos.
+#### Métodos de Pasaje de Parámetros
 
-El comando `manifestar` también es polimórfico en el sentido de que puede aceptar tanto números como cadenas de texto para su visualización.
+- **Por Valor (implícito):** Los comandos reciben copias de los valores. No pueden modificar el identificador original.
+- **Correspondencia Posicional:** No hay parámetros con nombre. Se utiliza el orden de aparición.
 
-No hay polimorfismo paramétrico (como genéricos) o polimorfismo de subtipos (herencia) ya que no hay tipos de datos complejos definidos por el usuario ni jerarquías.
+#### Ambiente de Referenciamiento
 
-## Tipos de los Parámetros: 
+No se permiten subprogramas como parámetros. No hay funciones de orden superior, y los comandos son fijos.
 
-Datos y Unidades:
+---
 
-Los parámetros que se pasan a los comandos son principalmente datos (valores numéricos o cadenas de texto).
+### 5. Polimorfismo
 
-No hay un concepto explícito de unidades de medida o de tipo. Por ejemplo, si pasas `5` a `repite 5 veces:`, se asume que `5` es una cantidad de repeticiones, no "5 metros" o "5 segundos". El significado de la "unidad" está implícito en el nombre del comando.
+#### Sobrecarga y Polimorfismo
 
-## Ambiente de Referenciamiento de los Subprogramas que Recibe como Parámetro (Chequeo estático o dinámico de subprogramas): 
-Este punto no aplica directamente a "Caminante" porque, como se mencionó, el lenguaje no tiene la capacidad de recibir subprogramas como parámetros (funciones de orden superior). 
-Todos los comandos son fijos y predefinidos.
+- **Sobrecarga en operaciones:** `mas` puede sumar números o concatenar cadenas.
+- **Polimorfismo en comandos:** `manifestar` puede aceptar texto o números.
+
+No hay polimorfismo paramétrico ni de subtipos ya que no hay jerarquías ni tipos definidos por el usuario.
 
 ## Diagrama Connway
 

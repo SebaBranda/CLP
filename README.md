@@ -48,6 +48,11 @@ LP --> HLP
 LP --> DDP
 DDP --> PDP
 ```
+## TP 2 - Lenguajes de Programación
+
+En esta planilla colaborativba, se investigaron 180 lenguajes de programación, desde su año de creación, incluyendo Paradigma, Generación del lenguaje, Concurrencia, entre otroas características.
+
+Acceso a [Planilla de lenguajes].(https://docs.google.com/spreadsheets/d/19aTSzIjQNs6RBNJFz0bftTlqKr-uWbohbBZnxmP0-r0/edit?gid=0#gid=0)
 
 ## TP 3 - Lenguaje Backrooms (Esotérico)
 
